@@ -54,42 +54,69 @@ package com.example.kotlin_fondamentaux.tutos
 //    val user2 = User("Bob", 16)
 //}
 
-class SmartDevice(val name: String, val category: String) {
-    var deviceStatus = "online" // Default status
+//class SmartDevice(val name: String, val category: String) {
+//    var deviceStatus = "online" // Default status
+//
+//    // Secondary constructor
+//    constructor(name: String, category: String, statusCode: Int) : this(name, category) {
+//        deviceStatus = when (statusCode) {
+//            0 -> "offline"
+//            1 -> "online"
+//            else -> "unknown"
+//        }
+//    }
+//
+//    // Method to display device details
+//    fun displayStatus() {
+//        println("Device Name: $name")
+//        println("Category: $category")
+//        println("Status: $deviceStatus")
+//    }
+//}
+//
+//fun main() {
+//    // Creating an object using the primary constructor
+//    val device1 = SmartDevice("Smart Light", "Lighting")
+//    device1.displayStatus()
+//
+//    // Creating an object using the secondary constructor with statusCode
+//    val device2 = SmartDevice("Smart Thermostat", "HVAC", 0)
+//    device2.displayStatus()
+//
+//    // Creating another object using the secondary constructor with an unknown statusCode
+//    val device3 = SmartDevice("Smart Doorbell", "Security", 3)
+//    device3.displayStatus()
+//}
 
-    // Secondary constructor
-    constructor(name: String, category: String, statusCode: Int) : this(name, category) {
-        deviceStatus = when (statusCode) {
-            0 -> "offline"
-            1 -> "online"
-            else -> "unknown"
-        }
-    }
-
-    // Method to display device details
-    fun displayStatus() {
-        println("Device Name: $name")
-        println("Category: $category")
-        println("Status: $deviceStatus")
+//open class Animal(val name: String) {
+//    open fun makeSound() {
+//        println("$name is making a sound.")
+//    }
+//}
+//
+//class Dog(name: String) : Animal(name) {
+//    override fun makeSound() {
+//        println("$name is barking.")
+//    }
+//}
+//
+//fun main() {
+//    val myDog = Dog("Buddy")
+//    myDog.makeSound()  // Output: Buddy is barking.
+//}
+class Example {
+    val lazyValue: String by lazy {
+        println("Computed only once!")
+        "Hello, World!" // Value to be returned
     }
 }
 
 fun main() {
-    // Creating an object using the primary constructor
-    val device1 = SmartDevice("Smart Light", "Lighting")
-    device1.displayStatus()
+    val example = Example()
 
-    // Creating an object using the secondary constructor with statusCode
-    val device2 = SmartDevice("Smart Thermostat", "HVAC", 0)
-    device2.displayStatus()
-
-    // Creating another object using the secondary constructor with an unknown statusCode
-    val device3 = SmartDevice("Smart Doorbell", "Security", 3)
-    device3.displayStatus()
+    println(example.lazyValue)  // Prints: Computed only once! and then Hello, World!
+    println(example.lazyValue)  // Prints: Hello, World! (without recomputation)
 }
-
-
-
 
 
 //
